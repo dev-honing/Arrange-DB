@@ -17,6 +17,10 @@ node_modules/ 추가
 
 ## [#2. 서버 제작과 index.html 서빙](https://github.com/dev-honing/Arrange-DB/issues/2)
 ### Express 패키지 설치
+```
+npm install express
+```
 ### app.js
 Express로 서버를 제작
 ### index.html
+테스트 데이터를 입력하고, 서빙 확인
