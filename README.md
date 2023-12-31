@@ -20,7 +20,10 @@ node_modules/ 추가
 ```
 npm install express
 ```
-### app.js
-Express로 서버를 제작
-### index.html
-테스트 데이터를 입력하고, 서빙 확인
+### 서버 제작을 위한 기본 로직 작성
+- app.js
+### public/에 정적 파일 작성
+- index.html
+- index.css
+### 정적 파일 서빙을 위한 로직 추가
+- app.js
