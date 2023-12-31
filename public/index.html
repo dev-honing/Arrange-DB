@@ -32,13 +32,12 @@
             <option value="Repeated Learning">Repeated Learning</option>
             <option value="Subject">Subject</option>
           </select>
+
           <br />
 
           <!-- 제목 입력 -->
           <label for="title">제목:</label>
           <input type="text" class="title" name="title" required />
-
-          <br />
 
           <!-- 제출 버튼 -->
           <button type="submit">제출</button>
@@ -46,5 +45,54 @@
       </div>
       <div id="footer"></div>
     </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 태그 선택 요소
+        var tagSelect = document.querySelector(".tag");
+        // 과목 선택 요소
+        var subjectSelect = document.querySelector(".subject");
+
+        // 초기 과목 리스트
+        var subjectOptions = {
+          자료: [
+            "React.js",
+            "하브루타 노트",
+            "Next.js",
+            "AWS",
+            "Repeated Learning",
+            "Subject",
+          ],
+          과제: ["하브루타 노트", "Subject"],
+        };
+
+        // 페이지 로드 시의 초기 항목을 설정
+        updateSubjectOptions();
+
+        // 태그 선택을 변경하면 작동하는 이벤트
+        tagSelect.addEventListener("change", () => {
+          updateSubjectOptions();
+        });
+
+        // 태그에 따라 과목 리스트를 업데이트하는 함수
+        function updateSubjectOptions() {
+          // 현재 선택된 태그
+          var selectedTag = tagSelect.value;
+          // 현재 태그에 따른 과목 리스트
+          var subjects = subjectOptions[selectedTag] || [];
+
+          // 기존의 과목 리스트를 비우기
+          subjectSelect.innerHTML = "";
+
+          // 새로운 과목 리스트 추가
+          subjects.forEach(function (subject) {
+            var option = document.createElement("option");
+            option.value = subject;
+            option.text = subject;
+            subjectSelect.add(option);
+          });
+        }
+      });
+    </script>
   </body>
 </html>
