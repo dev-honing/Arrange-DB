@@ -2,17 +2,49 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>클래스룸 데이터 조회 페이지</title>
-  <link rel="stylesheet" href="index.css">
-</head>
-<body>
-  <div id="root">
-    <div id="header"></div>
-    <div id="container"></div>
-    <div id="footer"></div>
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>클래스룸 데이터 조회 페이지</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div id="root">
+      <div id="header"></div>
+      <div id="container">
+        <form action="/submit" method="post">
+          <!-- 태그 선택 -->
+          <label for="tag">태그 선택:</label>
+          <select id="tag" name="tag">
+            <option value="자료">자료</option>
+            <option value="과제">과제</option>
+          </select>
+
+          <br />
+
+          <!-- 과목 선택 -->
+          <label for="subject">과목 선택:</label>
+          <select id="subject" name="subject">
+            <option value="React.js">React.js</option>
+            <option value="하브루타 노트">하브루타 노트</option>
+            <option value="Next.js">Next.js</option>
+            <option value="AWS">AWS</option>
+            <option value="Repeated Learning">Repeated Learning</option>
+            <option value="Subject">Subject</option>
+          </select>
+          <br />
+
+          <!-- 제목 입력 -->
+          <label for="title">제목:</label>
+          <input type="text" id="title" name="title" required />
+
+          <br />
+
+          <!-- 제출 버튼 -->
+          <button type="submit">제출</button>
+        </form>
+      </div>
+      <div id="footer"></div>
+    </div>
+  </body>
 </html>
