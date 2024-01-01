@@ -35,3 +35,7 @@ npm install express
 - app.js
 ### 제출된 폼 데이터를 MariaDB에 저장
 - app.js
+
+## [#4. 폼 데이터 유효성 검사](https://github.com/dev-honing/Arrange-DB/issues/4)
+### 연번 중복 체크 및 에러 처리
+- app.js
