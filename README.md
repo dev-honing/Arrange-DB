@@ -31,7 +31,12 @@ npm install express
 ## [#3. DB 양식에 맞게 폼 처리](https://github.com/dev-honing/Arrange-DB/issues/3)
 ### HTML 파일에 폼 생성
 - index.html
-### 폼 제출을 위한 POST 라우팅 로직 추가
+### 폼 제출을 위한 미들웨어 설정 및 POST 라우팅 로직 추가
 - app.js
 ### 제출된 폼 데이터를 MariaDB에 저장
+#### 설치된 MariaDB 패키지 가져오기
+- app.js
+#### MariaDB 연결 설정 및 데이터베이스, 테이블 생성 로직 추가
+- app.js
+#### 폼 데이터 저장 로직 추가
 - app.js
