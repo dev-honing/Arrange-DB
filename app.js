@@ -75,18 +75,32 @@ app.post("/submit", (req, res) => {
   const number = req.body.number;
   const title = req.body.title;
 
-  // 데이터베이스에 저장
-  const query =
-    "INSERT INTO classroom (tag, subject, number, title) VALUES (?, ?, ?, ?)";
-  db.query(query, [tag, subject, number, title], (err, results) => {
-    if (err) {
-      console.error("데이터베이스에 저장 실패: ", err);
-      res.send("데이터베이스에 저장하는 중 오류가 발생했습니다.");
+  // 연번 중복 체크
+  const checkDuplicateQuery =
+    "SELECT id FROM classroom WHERE number = ?";
+  db.query(checkDuplicateQuery, [number], (checkErr, checkResults) => {
+    if (checkErr) {
+      console.error("중복 체크 중 오류 발생: ", checkErr);
+      res.send("중복 체크 중 오류가 발생했습니다.");
+      return;
+    }
+
+    if (checkResults.length > 0) {
+      console.log(`연번 중복: ${number}번은 이미 등록되어 있음`);
+      res.send("해당 연번은 이미 등록되어 있습니다.");
     } else {
-      console.log("데이터베이스에 저장 완료");
-      res.send("제출이 완료되었습니다.");
-      // 서버 콘솔에 출력
-      console.log(`제출된 내용: [${tag}] ${subject}-${number} | ${title}`);
+      // 데이터베이스에 저장
+      const insertQuery =
+        "INSERT INTO classroom (tag, subject, number, title) VALUES (?, ?, ?, ?)";
+      db.query(insertQuery, [tag, subject, number, title], (err, results) => {
+        if (err) {
+          console.error("데이터베이스에 저장 실패: ", err);
+          res.send("데이터베이스에 저장하는 중 오류가 발생했습니다.");
+        } else {
+          console.log("데이터베이스에 저장 완료");
+          res.send("제출이 완료되었습니다.");
+        }
+      });
     }
   });
 });
