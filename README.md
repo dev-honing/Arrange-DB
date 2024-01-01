@@ -27,3 +27,11 @@ npm install express
 - index.css
 ### 정적 파일 서빙을 위한 로직 추가
 - app.js
+
+## [#3. DB 양식에 맞게 폼 처리](https://github.com/dev-honing/Arrange-DB/issues/3)
+### HTML 파일에 폼 생성
+- index.html
+### 폼 제출을 위한 POST 라우팅 로직 추가
+- app.js
+### 제출된 폼 데이터를 MariaDB에 저장
+- app.js
